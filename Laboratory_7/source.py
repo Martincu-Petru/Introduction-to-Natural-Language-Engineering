@@ -1,20 +1,22 @@
 import nltk, re,os
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import operator
 
 nltk.download('vader_lexicon')
 nltk.download('punkt')
 
-sentiments = {'compound': list(),
-              'negative': list(),
-              'positive': list(),
-              'neutral': list()}
+sentiments = {'compound': [],
+              'negative': [],
+              'positive': [],
+              'neutral': []}
+
+
 def read():
     paragraphs = None
     try:
-        for root, dirs, files in os.walk("./the_violent_corpus", topdown=False):
+        for root, dirs, files in os.walk("../Training_data/the_violent_corpus", topdown=False):
             for name in files:
                 paragraphs = open(os.path.join(root, name), "rb").read()
-                # print(os.path.join(root, name))
                 paragraphs = re.sub(r"\\n", " ", str(paragraphs))
                 sentences = nltk.sent_tokenize(str(paragraphs))
                 sentimentAnalysis(sentences, os.path.join(root, name))
@@ -24,30 +26,36 @@ def read():
 
 def sentimentAnalysis(sentences, nume):
     sid = SentimentIntensityAnalyzer()
-    dictionar = dict()
-    dictionar["neutru"] = 0
-    dictionar["pozitiv"] = 0
-    dictionar["negativ"] = 0
+    sentiments_statistics = {
+        "negative": 0,
+        "positive": 0,
+        "neutral": 0,
+        "compound": 0
+    }
 
     for sentence in sentences:
 
         ss = sid.polarity_scores(sentence)
-        for k in sorted(ss):
-            # print('{0}: {1}, '.format(k, ss[k]), end='')
-            # print()
-            if k == 'compound':
-                sentiments['compound'].append(sentence)
-            elif k == 'neg':
-                sentiments['negative'].append(sentence)
-                dictionar["negativ"] += 1
-            elif k == 'neu':
-                sentiments['neutral'].append(sentence)
-                dictionar["neutru"] += 1
-            elif k == 'pos':
-                sentiments['positive'].append(sentence)
-                dictionar["pozitiv"] += 1
+        overall_sentiment = max(ss.items(), key=operator.itemgetter(1))[0]
+        if overall_sentiment == "neu":
+            if ss["neg"] != 0 or ss["pos"] != 0:
+                if ss["neg"] > 0:
+                    overall_sentiment = "neg"
+                else:
+                    overall_sentiment = "pos"
+
+        if overall_sentiment == "neu":
+            sentiments_statistics["neutral"] += 1
+        elif overall_sentiment == "compound":
+            sentiments_statistics["compound"] += 1
+        elif overall_sentiment == "neg":
+            sentiments_statistics["negative"] += 1
+        elif overall_sentiment == "pos":
+            sentiments_statistics["positive"] += 1
+
     print("Nume: " + nume)
-    print(dictionar)
+    print(sentiments_statistics)
 
 
-read()
+if __name__ == '__main__':
+    read()
