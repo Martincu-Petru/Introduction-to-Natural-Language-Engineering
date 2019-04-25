@@ -19,10 +19,16 @@ class Checker:
         self.questions_location = questions_location
         self.files_location = files_location
 
-        if not questions_location.endswith(".json"):
-            raise Exception("Invalid question file format.")
-
     def validate_data(self):
+
+        if not os.path.exists(self.questions_location):
+            raise Exception("Invalid questions file location.")
+
+        if not os.path.exists(self.files_location):
+            raise Exception("Invalid documents location folder.")
+
+        if not self.questions_location.endswith(".json"):
+            raise Exception("Invalid question file format.")
 
         questions_json = json.loads(open(self.questions_location, "r").read())
 

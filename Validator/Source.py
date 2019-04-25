@@ -8,4 +8,7 @@ if __name__ == '__main__':
                                                         "\\Laboratories\\Introduction-to-Natural-Language-Engineering"
                                                         "\\Validator\\test_folder\\documents")
 
-    question_checker.validate_data()
+    try:
+        question_checker.validate_data()
+    except Exception as e:
+        print(str(e))
