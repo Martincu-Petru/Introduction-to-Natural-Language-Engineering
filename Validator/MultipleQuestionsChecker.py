@@ -18,6 +18,9 @@ class Checker:
         self.questions_location = questions_location
         self.files_location = files_location
 
+        if not questions_location.endswith(".json"):
+            raise Exception("Invalid question file format.")
+
     def validate_data(self):
 
         questions_json = json.loads(open(self.questions_location, "r").read())
