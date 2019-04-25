@@ -1,0 +1,5 @@
+{
+  "participant_types": [
+    "first", "last", "full_name"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "1-100065": {
+    "event_type": "injuring",
+    "location": {
+      "state": "http://dbpedia.org/resource/New_Jersey"
+    },
+    "time": {
+      "day": "01/02/2019"
+    },
+    "subtask": 2,
+    "verbose_question": "Which ['injuring'] event happened in ('New Jersey',) (state) that involve the name Jones (last) ?"
+  }
+}

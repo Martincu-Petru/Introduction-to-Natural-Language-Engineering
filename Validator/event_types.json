@@ -1,0 +1,5 @@
+{
+  "event_types": [
+    "injuring", "killing", "fire_burning", "job_firing"
+  ]
+}
