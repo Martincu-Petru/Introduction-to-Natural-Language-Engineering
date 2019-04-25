@@ -6,7 +6,7 @@ month_year_regex = re.compile(r"^(((0)[0-9])|((1)[0-2]))(/)\d{4}$")
 year_regex = re.compile(r"^\d{4}$")
 
 
-class QuestionChecker:
+class Checker:
 
     question = None
     question_json = None

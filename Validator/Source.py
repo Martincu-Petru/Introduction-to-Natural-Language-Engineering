@@ -1,10 +1,11 @@
-import QuestionChecker
+import MultipleQuestionsChecker
 
 if __name__ == '__main__':
-    question_checker = QuestionChecker.QuestionChecker()
-    try:
-        question_checker.check_question_valid(open("test_question.json").read())
-    except Exception as e:
-        print("Problem ancountered: " + str(e))
-    else:
-        print("Question is valid!")
+    question_checker = MultipleQuestionsChecker.Checker("D:\\Facultate\\Facultate_Anul_III_Semestrul_II\\IILN"
+                                                        "\\Laboratories\\Introduction-to-Natural-Language-Engineering"
+                                                        "\\Validator\\test_folder\\questions.json",
+                                                        "D:\\Facultate\\Facultate_Anul_III_Semestrul_II\\IILN"
+                                                        "\\Laboratories\\Introduction-to-Natural-Language-Engineering"
+                                                        "\\Validator\\test_folder\\documents")
+
+    question_checker.validate_data()

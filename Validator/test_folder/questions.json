@@ -1,0 +1,68 @@
+{
+    "3-100023": {
+        "event_type": "injuring",
+        "participant": {
+            "first": "Ketrell"
+        },
+        "subtask": 3,
+        "time": {
+            "year": "2016"
+        },
+        "verbose_question": "How many people were injured in 2016 (year) that involve the name Ketrell (first) ?"
+    },
+    "3-100036": {
+        "event_type": "injuring",
+        "participant": {
+            "first": "Richard"
+        },
+        "subtask": 3,
+        "time": {
+            "year": "2016"
+        },
+        "verbose_question": "How many people were injured in 2016 (year) that involve the name Richard (first) ?"
+    },
+    "3-100044": {
+        "event_type": "injuring",
+        "participant": {
+            "first": "Brandon"
+        },
+        "subtask": 3,
+        "time": {
+            "year": "2016"
+        },
+        "verbose_question": "How many people were injured in 2016 (year) that involve the name Brandon (first) ?"
+    },
+    "3-100054": {
+        "event_type": "injuring",
+        "participant": {
+            "first": "Vincent"
+        },
+        "subtask": 3,
+        "time": {
+            "year": "2015"
+        },
+        "verbose_question": "How many people were injured in 2015 (year) that involve the name Vincent (first) ?"
+    },
+    "3-100074": {
+        "event_type": "injuring",
+        "participant": {
+            "first": "Herbert"
+        },
+        "subtask": 3,
+        "time": {
+            "year": "2016"
+        },
+        "verbose_question": "How many people were injured in 2016 (year) that involve the name Herbert (first) ?"
+    },
+    "3-100097": {
+        "event_type": "injuring",
+        "participant": {
+            "first": "William"
+        },
+        "subtask": 3,
+        "time": {
+            "year": "2016"
+        },
+        "verbose_question": "How many people were injured in 2016 (year) that involve the name William (first) ?"
+    }
+}
