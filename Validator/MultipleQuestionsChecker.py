@@ -2,6 +2,7 @@ import SingleQuestionChecker
 import FileManager
 import json
 import re
+import os
 
 
 question_id_regex = re.compile(r"(\d)-(\d+)")
@@ -42,6 +43,13 @@ class Checker:
                                         + ", has no directory associated.")
 
                     self.single_question_checker.check_question_valid(json.dumps(question))
+
+                    for file in self.file_manager.get_files_from_directory(os.path.join(self.files_location,
+                                                                                        document_folder)):
+                        try:
+                            self.file_manager.check_file_json_format(file)
+                        except Exception as e:
+                            print("Problem encountered for question with ID = " + document_folder + ": " + str(e))
 
                 except Exception as e:
                     raise e
